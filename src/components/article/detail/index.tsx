@@ -39,7 +39,7 @@ const ArticleDetail: React.FC<Props> = ({ pageContext }) => (
         </div>
         <Title style={{ fontWeight: 400, fontSize: '28px', marginTop: '20px' }}>{pageContext.article.title}</Title>
         <Paragraph style={{ marginBottom: '40px' }}><Icon type="clock-circle" style={{ marginRight: '6px' }} />{pageContext.article.updatedAt}</Paragraph>
-        <div dangerouslySetInnerHTML={{ __html: pageContext.article.body.childMarkdownRemark.html }} />
+        <div className="contentful-article" dangerouslySetInnerHTML={{ __html: pageContext.article.body.childMarkdownRemark.html }} />
     </div>
 )
 
