@@ -4195,8 +4195,6 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -4241,8 +4239,6 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
-  port?: Maybe<Scalars['Int']>,
-  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -4374,8 +4370,6 @@ export type SiteFieldsEnum =
   'siteMetadata___description' |
   'siteMetadata___author' |
   'siteMetadata___siteUrl' |
-  'port' |
-  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -4386,8 +4380,6 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
@@ -4442,6 +4434,8 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   article?: Maybe<SitePageContextArticle>,
+  next?: Maybe<SitePageContextNext>,
+  previous?: Maybe<SitePageContextPrevious>,
 };
 
 export type SitePageContextArticle = {
@@ -4572,6 +4566,92 @@ export type SitePageContextArticleRelatedPostsFilterListInput = {
 
 export type SitePageContextFilterInput = {
   article?: Maybe<SitePageContextArticleFilterInput>,
+  next?: Maybe<SitePageContextNextFilterInput>,
+  previous?: Maybe<SitePageContextPreviousFilterInput>,
+};
+
+export type SitePageContextNext = {
+  title?: Maybe<Scalars['String']>,
+  coverImage?: Maybe<SitePageContextNextCoverImage>,
+  updatedAt?: Maybe<Scalars['String']>,
+  description?: Maybe<SitePageContextNextDescription>,
+  slug?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextCoverImage = {
+  title?: Maybe<Scalars['String']>,
+  file?: Maybe<SitePageContextNextCoverImageFile>,
+};
+
+export type SitePageContextNextCoverImageFile = {
+  url?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextCoverImageFileFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextNextCoverImageFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  file?: Maybe<SitePageContextNextCoverImageFileFilterInput>,
+};
+
+export type SitePageContextNextDescription = {
+  description?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextDescriptionFilterInput = {
+  description?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextNextFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  coverImage?: Maybe<SitePageContextNextCoverImageFilterInput>,
+  updatedAt?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<SitePageContextNextDescriptionFilterInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPrevious = {
+  title?: Maybe<Scalars['String']>,
+  coverImage?: Maybe<SitePageContextPreviousCoverImage>,
+  updatedAt?: Maybe<Scalars['String']>,
+  description?: Maybe<SitePageContextPreviousDescription>,
+  slug?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousCoverImage = {
+  title?: Maybe<Scalars['String']>,
+  file?: Maybe<SitePageContextPreviousCoverImageFile>,
+};
+
+export type SitePageContextPreviousCoverImageFile = {
+  url?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousCoverImageFileFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPreviousCoverImageFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  file?: Maybe<SitePageContextPreviousCoverImageFileFilterInput>,
+};
+
+export type SitePageContextPreviousDescription = {
+  description?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousDescriptionFilterInput = {
+  description?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPreviousFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  coverImage?: Maybe<SitePageContextPreviousCoverImageFilterInput>,
+  updatedAt?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<SitePageContextPreviousDescriptionFilterInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -4683,6 +4763,16 @@ export type SitePageFieldsEnum =
   'context___article___relatedPosts' |
   'context___article___relatedPosts___title' |
   'context___article___relatedPosts___updatedAt' |
+  'context___next___title' |
+  'context___next___coverImage___title' |
+  'context___next___updatedAt' |
+  'context___next___description___description' |
+  'context___next___slug' |
+  'context___previous___title' |
+  'context___previous___coverImage___title' |
+  'context___previous___updatedAt' |
+  'context___previous___description___description' |
+  'context___previous___slug' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
@@ -4739,10 +4829,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___icon' |
   'pluginCreator___pluginOptions___spaceId' |
   'pluginCreator___pluginOptions___accessToken' |
-  'pluginCreator___pluginOptions___trackingId' |
-  'pluginCreator___pluginOptions___head' |
-  'pluginCreator___pluginOptions___anonymize' |
-  'pluginCreator___pluginOptions___siteSpeedSampleRate' |
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___host' |
   'pluginCreator___pluginOptions___sitemap' |
@@ -4764,6 +4850,9 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___prompt___host' |
   'pluginCreator___pluginOptions___prompt___global' |
   'pluginCreator___pluginOptions___pathCheck' |
+  'pluginCreator___pluginOptions___head' |
+  'pluginCreator___pluginOptions___anonymize' |
+  'pluginCreator___pluginOptions___siteSpeedSampleRate' |
   'pluginCreator___nodeAPIs' |
   'pluginCreator___browserAPIs' |
   'pluginCreator___ssrAPIs' |
@@ -4970,10 +5059,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___icon' |
   'pluginOptions___spaceId' |
   'pluginOptions___accessToken' |
-  'pluginOptions___trackingId' |
-  'pluginOptions___head' |
-  'pluginOptions___anonymize' |
-  'pluginOptions___siteSpeedSampleRate' |
   'pluginOptions___fileName' |
   'pluginOptions___host' |
   'pluginOptions___sitemap' |
@@ -4995,6 +5080,9 @@ export type SitePluginFieldsEnum =
   'pluginOptions___prompt___host' |
   'pluginOptions___prompt___global' |
   'pluginOptions___pathCheck' |
+  'pluginOptions___head' |
+  'pluginOptions___anonymize' |
+  'pluginOptions___siteSpeedSampleRate' |
   'nodeAPIs' |
   'browserAPIs' |
   'ssrAPIs' |
@@ -5121,10 +5209,6 @@ export type SitePluginPluginOptions = {
   icon?: Maybe<Scalars['String']>,
   spaceId?: Maybe<Scalars['String']>,
   accessToken?: Maybe<Scalars['String']>,
-  trackingId?: Maybe<Scalars['String']>,
-  head?: Maybe<Scalars['Boolean']>,
-  anonymize?: Maybe<Scalars['Boolean']>,
-  siteSpeedSampleRate?: Maybe<Scalars['Int']>,
   fileName?: Maybe<Scalars['String']>,
   host?: Maybe<Scalars['String']>,
   sitemap?: Maybe<Scalars['String']>,
@@ -5140,6 +5224,9 @@ export type SitePluginPluginOptions = {
   languageExtensions?: Maybe<Array<Maybe<SitePluginPluginOptionsLanguageExtensions>>>,
   prompt?: Maybe<SitePluginPluginOptionsPrompt>,
   pathCheck?: Maybe<Scalars['Boolean']>,
+  head?: Maybe<Scalars['Boolean']>,
+  anonymize?: Maybe<Scalars['Boolean']>,
+  siteSpeedSampleRate?: Maybe<Scalars['Int']>,
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -5154,10 +5241,6 @@ export type SitePluginPluginOptionsFilterInput = {
   icon?: Maybe<StringQueryOperatorInput>,
   spaceId?: Maybe<StringQueryOperatorInput>,
   accessToken?: Maybe<StringQueryOperatorInput>,
-  trackingId?: Maybe<StringQueryOperatorInput>,
-  head?: Maybe<BooleanQueryOperatorInput>,
-  anonymize?: Maybe<BooleanQueryOperatorInput>,
-  siteSpeedSampleRate?: Maybe<IntQueryOperatorInput>,
   fileName?: Maybe<StringQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
   sitemap?: Maybe<StringQueryOperatorInput>,
@@ -5173,6 +5256,9 @@ export type SitePluginPluginOptionsFilterInput = {
   languageExtensions?: Maybe<SitePluginPluginOptionsLanguageExtensionsFilterListInput>,
   prompt?: Maybe<SitePluginPluginOptionsPromptFilterInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
+  head?: Maybe<BooleanQueryOperatorInput>,
+  anonymize?: Maybe<BooleanQueryOperatorInput>,
+  siteSpeedSampleRate?: Maybe<IntQueryOperatorInput>,
 };
 
 export type SitePluginPluginOptionsLanguageExtensions = {
