@@ -9,9 +9,9 @@ type Props = {
 
 const AllArticleList: React.FC<Props> = ({ data }) => {
     return (
-        <Row type="flex" align="top" gutter={16}>
+        <Row type="flex" gutter={16} >
             {data.allContentfulBlog.edges.map(page =>
-                <Col xs={12} sm={8} md={8} lg={8} xl={8} key={page.node.slug}>
+                <Col xs={12} sm={8} md={8} lg={8} xl={8} key={page.node.slug} style={{ marginBottom: '20px' }}>
                     <AllArticleItem
                         title={page.node.title}
                         slug={page.node.slug}

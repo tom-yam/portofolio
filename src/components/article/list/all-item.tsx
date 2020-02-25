@@ -7,13 +7,12 @@ const { Paragraph } = Typography;
 
 const cardShadowStyle = {
     width: '100%',
-    height: 'auto',
+    height: '100%',
     borderRadius: '1rem',
     background: 'linear-gradient(145deg, #ffffff, #f0f5ff)',
     boxShadow: '10px 10px 20px #b4b8bf, -10px -10px 20px #ffffff',
     margin: '0 auto',
-    padding: '10px',
-    marginBottom: '20px'
+    padding: '10px 10px 30px 10px',
 }
 
 type Props = {
@@ -25,7 +24,7 @@ type Props = {
 }
 const AllArticleItem: React.FC<Props> = props => {
     return (
-        <Link to={createArticleLink(props.slug)}>
+        <Link to={createArticleLink(props.slug)} >
             <div style={cardShadowStyle}>
                 <img
                     alt="記事のヘッダー画像"
@@ -34,7 +33,7 @@ const AllArticleItem: React.FC<Props> = props => {
                 />
                 <Paragraph
                     ellipsis={{ rows: 1, expandable: false, }}
-                    style={{ fontSize: '18px', color: 'black', fontWeight: 500, marginBottom: '8px' }}
+                    style={{ fontSize: '16px', color: 'black', fontWeight: 500, marginBottom: '8px', marginTop: '10px' }}
                 >
                     {props.title}
                 </Paragraph>
@@ -46,7 +45,7 @@ const AllArticleItem: React.FC<Props> = props => {
                 </Paragraph>
                 <Paragraph
                     ellipsis={{ rows: 1, expandable: false, }}
-                    style={{ fontSize: '12px', marginBottom: '0px', textAlign: 'right' }}
+                    style={{ fontSize: '12px', marginBottom: '0px', textAlign: 'right', position: 'absolute', bottom: '10px' }}
                 >
                     {props.updatedAt}
                 </Paragraph>

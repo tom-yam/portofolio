@@ -2,6 +2,7 @@ import React from "react"
 import { Typography, Icon } from 'antd';
 import CSS from 'csstype'
 import PageLayout from "../components/layout/index"
+import SEO from "../components/seo"
 
 const { Title } = Typography;
 const cardShadowStyle: CSS.Properties = {
@@ -19,6 +20,7 @@ const cardShadowStyle: CSS.Properties = {
 
 const ContactPage = () => (
     <PageLayout backgroundColor="#f0f5ff">
+        <SEO title="お問い合わせ" meta={[]} description="ご意見やご相談などの連絡はTwitterのDMまでお願いいたします" />
         <div style={{ maxWidth: '900px', margin: '70px auto' }}>
             <Title level={1} style={{ textAlign: 'center', fontSize: '24px', marginBottom: '30px' }}>お問い合わせ</Title>
             <div style={{ textAlign: 'center' }}>

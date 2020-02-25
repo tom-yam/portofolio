@@ -4195,6 +4195,8 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -4239,6 +4241,8 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
+  port?: Maybe<Scalars['Int']>,
+  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -4370,6 +4374,8 @@ export type SiteFieldsEnum =
   'siteMetadata___description' |
   'siteMetadata___author' |
   'siteMetadata___siteUrl' |
+  'port' |
+  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -4380,6 +4386,8 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
@@ -4522,6 +4530,7 @@ export type SitePageContextArticleFilterInput = {
 
 export type SitePageContextArticleRelatedPosts = {
   title?: Maybe<Scalars['String']>,
+  slug?: Maybe<Scalars['String']>,
   updatedAt?: Maybe<Scalars['String']>,
   coverImage?: Maybe<SitePageContextArticleRelatedPostsCoverImage>,
   description?: Maybe<SitePageContextArticleRelatedPostsDescription>,
@@ -4555,6 +4564,7 @@ export type SitePageContextArticleRelatedPostsDescriptionFilterInput = {
 
 export type SitePageContextArticleRelatedPostsFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
   updatedAt?: Maybe<StringQueryOperatorInput>,
   coverImage?: Maybe<SitePageContextArticleRelatedPostsCoverImageFilterInput>,
   description?: Maybe<SitePageContextArticleRelatedPostsDescriptionFilterInput>,
@@ -4762,6 +4772,7 @@ export type SitePageFieldsEnum =
   'context___article___body___body' |
   'context___article___relatedPosts' |
   'context___article___relatedPosts___title' |
+  'context___article___relatedPosts___slug' |
   'context___article___relatedPosts___updatedAt' |
   'context___next___title' |
   'context___next___coverImage___title' |
@@ -4850,6 +4861,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___prompt___host' |
   'pluginCreator___pluginOptions___prompt___global' |
   'pluginCreator___pluginOptions___pathCheck' |
+  'pluginCreator___pluginOptions___trackingId' |
   'pluginCreator___pluginOptions___head' |
   'pluginCreator___pluginOptions___anonymize' |
   'pluginCreator___pluginOptions___siteSpeedSampleRate' |
@@ -5080,6 +5092,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___prompt___host' |
   'pluginOptions___prompt___global' |
   'pluginOptions___pathCheck' |
+  'pluginOptions___trackingId' |
   'pluginOptions___head' |
   'pluginOptions___anonymize' |
   'pluginOptions___siteSpeedSampleRate' |
@@ -5224,6 +5237,7 @@ export type SitePluginPluginOptions = {
   languageExtensions?: Maybe<Array<Maybe<SitePluginPluginOptionsLanguageExtensions>>>,
   prompt?: Maybe<SitePluginPluginOptionsPrompt>,
   pathCheck?: Maybe<Scalars['Boolean']>,
+  trackingId?: Maybe<Scalars['String']>,
   head?: Maybe<Scalars['Boolean']>,
   anonymize?: Maybe<Scalars['Boolean']>,
   siteSpeedSampleRate?: Maybe<Scalars['Int']>,
@@ -5256,6 +5270,7 @@ export type SitePluginPluginOptionsFilterInput = {
   languageExtensions?: Maybe<SitePluginPluginOptionsLanguageExtensionsFilterListInput>,
   prompt?: Maybe<SitePluginPluginOptionsPromptFilterInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
+  trackingId?: Maybe<StringQueryOperatorInput>,
   head?: Maybe<BooleanQueryOperatorInput>,
   anonymize?: Maybe<BooleanQueryOperatorInput>,
   siteSpeedSampleRate?: Maybe<IntQueryOperatorInput>,

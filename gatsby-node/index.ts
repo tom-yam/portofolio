@@ -42,6 +42,7 @@ export const articleQuery = `
         }
         relatedPosts {
           title
+          slug
           updatedAt(locale: "ja-JP", formatString: "YYYY年MM月DD日")
           coverImage {
             title

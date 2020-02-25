@@ -2,6 +2,7 @@ import React from "react"
 import { Typography } from 'antd';
 import CSS from 'csstype'
 import PageLayout from "../components/layout/index"
+import SEO from "../components/seo"
 
 const { Title, Paragraph } = Typography;
 const cardShadowStyle: CSS.Properties = {
@@ -20,6 +21,7 @@ const cardShadowStyle: CSS.Properties = {
 
 const ContactPage = () => (
     <PageLayout backgroundColor="#f0f5ff">
+        <SEO title="プライバシーポリシー・規約" meta={[]} description="tomokiya.com内でのプライバシーポリシーと規約の詳細です" />
         <div style={{ maxWidth: '900px', margin: '70px auto', padding: '20px' }}>
             <Title level={1} style={{ textAlign: 'center', fontSize: '24px', marginBottom: '30px' }}>プライバシーポリシー・規約</Title>
             <div style={{ textAlign: 'center' }}>

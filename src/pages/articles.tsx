@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import { AllArticlesQuery } from "../../types/graphql-types"
 import { Typography } from 'antd'
 import AllArticleList from '../components/article/list/all-list'
+import SEO from "../components/seo"
 
 const { Title } = Typography;
 type Props = {
@@ -12,6 +13,7 @@ type Props = {
 
 const ArticlesPage: React.FC<Props> = ({ data }) => (
   <PageLayout backgroundColor="#f0f5ff">
+    <SEO title="記事一覧" meta={[]} description="tom-yam内の全記事" />
     <div style={{
       background: '#f0f5ff'
     }}>
